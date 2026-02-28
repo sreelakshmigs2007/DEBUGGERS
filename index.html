@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mood Journal</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffeef8, #ffd6eb);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 400px;
+      text-align: center;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    h2 {
+      color: #ff69b4;
+    }
+
+    input, select, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      width: 95%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #ff4fa3;
+    }
+
+    #message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: red;
+    }
+
+    #reflection {
+      margin-top: 15px;
+      font-style: italic;
+      color: #555;
+    }
+
+    #historyBox {
+      margin-top: 15px;
+      max-height: 200px;
+      overflow-y: auto;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .historyItem {
+      margin-bottom: 10px;
+      padding: 8px;
+      background: #ffeef8;
+      border-radius: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .logout {
+      background-color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+
+  <!-- LOGIN SECTION-->
+  <div id="loginSection">
+    <h2>Welcome 🌸</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="signup()">Sign Up</button>
+    <button onclick="login()">Login</button>
+
+    <div id="message"></div>
+  </div>
+
+  <!-- MOOD SECTION -->
+  <div id="moodSection" class="hidden">
+    <h2>Hello <span id="displayUser"></span> 💖</h2>
+
+    <select id="mood">
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="anxious">Anxious</option>
+    </select>
+
+    <textarea id="thought" placeholder="Write a small thought..."></textarea>
+
+    <button onclick="saveMood()">Reflect</button>
+    <button onclick="viewHistory()">View History 📖</button>
+
+    <div id="reflection"></div>
+    <div id="historyBox"></div>
+
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>
+
+</div>
+
+<script>
+
+// Auto-login check
+window.onload = function() {
+  const currentUser = localStorage.getItem("currentUser");
+  if (currentUser) {
+    showMoodSection(currentUser);
+  }
+};
+
+// SIGNUP
+function signup() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const message = document.getElementById("message");
+
+  if (!username || !password) {
+    message.innerText = "Please fill all fields.";
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+
+  if (users[username]) {
+    message.innerText = "User already exists.";
+    return;
+  }
+
+  users[username] = password;
+  localStorage.setItem("users", JSON.stringify(users));
+
+  message.style.color = "green";
+  message.innerText = "Account created! Now login 💖";
+}
+
+// LOGIN
+function login() {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const message = document.getElementById("message");
+
+  let users = JSON.parse(localStorage.getItem("users")) || {};
+
+  if (users[username] && users[username] === password) {
+    localStorage.setItem("currentUser", username);
+    showMoodSection(username);
+  } else {
+    message.innerText = "Invalid username or password.";
+  }
+}
+
+// SHOW MOOD PAGE
+function showMoodSection(username) {
+  document.getElementById("loginSection").classList.add("hidden");
+  document.getElementById("moodSection").classList.remove("hidden");
+  document.getElementById("displayUser").innerText = username;
+}
+
+// LOGOUT
+function logout() {
+  localStorage.removeItem("currentUser");
+  location.reload();
+}
+
+// Quotes
+const quotes = {
+  happy: [
+    "Stay grateful. Gratitude multiplies happiness..Your happiness is glowing beautifully ✨",
+    "Good vibes are powerful. Don't dim themThat joy looks so good on you 💖",
+    "Happiness looks good on you — wear it often....You deserve this happy moment 🌷"
+  ],
+  sad: [
+    "It's okay to feel this way ..Storms don't last forever — and neither does this pain...🌧️",
+    "Be gentle with yourself today...Even the darkest night will end, and the sun will rise...🤍",
+    "This feeling won't last forever ...You are allowed to outgrow people, pain, and old versions of yourself..🌙"
+  ],
+  anxious: [
+    "Take a slow breath....Breathe. This moment is safe, even if your mind is loud 🌿",
+    "You are stronger than this wave. Let it rise. Let it fall....One step at a time 💫",
+    "You've handled hard moments before. You can handle this one too....You are stronger than this moment 🤍"
+  ]
+};
+
+function isGibberish(text) {
+  if (!text || text.length < 5) return true;
+
+  // Remove extra spaces
+  text = text.trim();
+
+  // Must contain at least one real word (3+ letters)
+  const words = text.split(" ");
+  const validWord = words.some(word => /^[a-zA-Z]{3,}$/.test(word));
+  if (!validWord) return true;
+
+  // Reject repeated same letter patterns (aaaaaa, bbbbb)
+  if (/^([a-zA-Z])\1+$/.test(text)) return true;
+
+  // Reject long consonant-only sequences (hduhuriyri type)
+  if (!/[aeiou]{1,}/i.test(text)) return true;
+
+  // Reject keyboard smash patterns
+  const smashPatterns = /(asdf|qwer|zxcv|hjkl)/i;
+  if (smashPatterns.test(text)) return true;
+
+  return false;
+}
+
+function saveMood() {
+  const mood = document.getElementById("mood").value;
+  const thought = document.getElementById("thought").value.trim();
+  const reflectionDiv = document.getElementById("reflection");
+
+  if (isGibberish(thought)) {
+    reflectionDiv.innerHTML =
+      "That doesn’t seem like a complete thought 💭 Try writing a bit more.";
+    return;
+  }
+
+  const randomQuote =
+    quotes[mood][Math.floor(Math.random() * quotes[mood].length)];
+
+  reflectionDiv.innerHTML = randomQuote;
+
+  const currentUser = localStorage.getItem("currentUser");
+  let allEntries = JSON.parse(localStorage.getItem("moodEntries")) || {};
+
+  if (!allEntries[currentUser]) {
+    allEntries[currentUser] = [];
+  }
+
+  allEntries[currentUser].push({
+    mood: mood,
+    thought: thought,
+    time: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("moodEntries", JSON.stringify(allEntries));
+
+  document.getElementById("thought").value = "";
+}
+
+// VIEW HISTORY
+function viewHistory() {
+  const historyBox = document.getElementById("historyBox");
+  const currentUser = localStorage.getItem("currentUser");
+  let allEntries = JSON.parse(localStorage.getItem("moodEntries")) || {};
+
+  if (!allEntries[currentUser] || allEntries[currentUser].length === 0) {
+    historyBox.innerHTML = "No reflections yet 💭";
+    return;
+  }
+
+  let historyHTML = "<b>Your Reflections:</b><br><br>";
+
+  allEntries[currentUser]
+    .slice()
+    .reverse()
+    .forEach(entry => {
+      historyHTML += `
+        <div class="historyItem">
+          <strong>Mood:</strong> ${entry.mood}<br>
+          <strong>Thought:</strong> ${entry.thought}<br>
+          <small>${entry.time}</small>
+        </div>
+      `;
+    });
+
+  historyBox.innerHTML = historyHTML;
+}
+
+</script>
+
+</body>
+</html>
