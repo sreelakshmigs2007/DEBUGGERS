@@ -35,10 +35,6 @@ A web-based Mood Journal that allows users to log in, record their daily mood an
 - Frameworks used: No external frameworks used
 - Libraries used: No external libraries used
 - Tools used: VS Code, Live Server, Chrome DevTools
-**For Hardware:**
-- Main components: Laptop / Desktop Computer ,Internet Browser (Chrome, Edge, Firefox)
-- Specifications: Minimum 4GB RAM ,Modern web browser with JavaScript enabled ,LocalStorage support (standard in all modern browsers) ,Windows / macOS / Linux compatible
-- Tools required: Code Editor (e.g., VS Code) ,Web Browser ,Live Server (for local development)
 
 ---
 
@@ -81,18 +77,8 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 <img width="1911" height="1004" alt="Screenshot 2026-02-28 062038" src="https://github.com/user-attachments/assets/dbb39f52-55ed-4182-8fba-60250437ee58" />
-
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
-
-![Screensh<img 
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what<img width="1903" height="1042" alt="Screenshot 2026-02-28 062208" src="https://github.com/user-attachments/assets/83179f5f-83f8-489c-b7b1-9fbb408fb396" />
- this shows*
-
-#### Diagrams
+<img width="1903" height="1042" alt="Screenshot 2026-02-28 062208" src="https://github.com/user-attachments/assets/83179f5f-83f8-489c-b7b1-9fbb408fb396" />
+<img width="1900" height="1005" alt="Screenshot 2026-02-28 062315" src="https://github.com/user-attachments/assets/4b961671-aab8-4342-9e6b-5bb9df5f4e2c" />
 
 **System Architecture:**
 ![Uploading Screenshot 2026-02-28 062208.png…]()
@@ -375,24 +361,22 @@ python script.py -v --format json data.json
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude
+**Tool Used:** chatgpt ,claude 
 
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+**Purpose:** 
+- help with coding
+- debugging the code
 
 **Key Prompts Used:**
 - "Create a REST API endpoint for user authentication"
 - "Debug this async function that's causing race conditions"
 - "Optimize this database query for better performance"
 
-**Percentage of AI-generated code:** [Approximately X%]
+**Percentage of AI-generated code:** 50
 
 **Human Contributions:**
 - Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
+- idea generation 
 - UI/UX design decisions
 
 *Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!*
@@ -401,12 +385,8 @@ If you used AI tools during development, document them here for transparency:
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
-
----
-
+- G S Sreelakshmi: Created the pastel-themed responsive layout. Implemented mood selection and reflection input components. 
+- Nandana V : Designed and implemented the login and signup authentication system using localStorage.
 ## License
 
 This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LICENSE) file for details.
