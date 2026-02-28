@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# MOOD JOURNAL APP 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: Debuggers
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: G S Sreelakshmi - Ahalia school of engineering and technology
+- Member 2: Nandana V - Ahalia school of engineering and technology
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+This is a lightweight web-based mood tracking application that allows users to log their emotions, receive supportive reflections, and track their emotional history over time. It is built using core frontend technologies and runs entirely on the client side. The platform allows users to securely log in, select their current mood, and write a short personal reflection in a private digital space. Based on the selected mood, the system generates supportive and dynamic motivational responses while storing each entry locally for future reference. A built-in history feature enables users to revisit past reflections, helping them identify emotional patterns over time.
 
 ### The Problem statement
-[What problem are you solving?]
+In today’s fast-paced academic and digital environment, students often experience fluctuating emotional states but lack a simple, private, and accessible platform to reflect on and track their daily moods. Without consistent emotional reflection, stress patterns go unnoticed and mental well-being deteriorates over time.
 
 ### The Solution
-[How are you solving it?]
+A web-based Mood Journal that allows users to log in, record their daily mood and thoughts, receive supportive reflections, and track their emotional history over time.
 
 ---
 
@@ -31,26 +31,24 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
-
+- Languages used: html , css, javascript
+- Frameworks used: No external frameworks used
+- Libraries used: No external libraries used
+- Tools used: VS Code, Live Server, Chrome DevTools
 **For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Main components: Laptop / Desktop Computer ,Internet Browser (Chrome, Edge, Firefox)
+- Specifications: Minimum 4GB RAM ,Modern web browser with JavaScript enabled ,LocalStorage support (standard in all modern browsers) ,Windows / macOS / Linux compatible
+- Tools required: Code Editor (e.g., VS Code) ,Web Browser ,Live Server (for local development)
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
-
+- Feature 1: Secure User Authentication
+- Feature 2 : Mood Selection & Reflection Logging
+- Feature 3: : Intelligent Input Validation
+- Feature 4: Mood-Based Dynamic Responses & History Tracking
 ---
 
 ## Implementation
@@ -82,19 +80,22 @@ List the key features of your project:
 ### For Software:
 
 #### Screenshots (Add at least 3)
+<img width="1911" height="1004" alt="Screenshot 2026-02-28 062038" src="https://github.com/user-attachments/assets/dbb39f52-55ed-4182-8fba-60250437ee58" />
 
 ![Screenshot1](Add screenshot 1 here with proper name)
 *Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
+![Screensh<img 
 *Add caption explaining what this shows*
 
 ![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+*Add caption explaining what<img width="1903" height="1042" alt="Screenshot 2026-02-28 062208" src="https://github.com/user-attachments/assets/83179f5f-83f8-489c-b7b1-9fbb408fb396" />
+ this shows*
 
 #### Diagrams
 
 **System Architecture:**
+![Uploading Screenshot 2026-02-28 062208.png…]()
 
 ![Architecture Diagram](docs/architecture.png)
 *Explain your system architecture - components, data flow, tech stack interaction*
@@ -361,7 +362,7 @@ python script.py -v --format json data.json
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
+[video link](https://drive.google.com/file/d/1h1kbMPL6slGsZR1ielxKrSsL6fNLKL3r/view?usp=sharing)
 
 *Explain what the video demonstrates - key features, user flow, technical highlights*
 
@@ -374,7 +375,7 @@ python script.py -v --format json data.json
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude
 
 **Purpose:** [What you used it for]
 - Example: "Generated boilerplate React components"
