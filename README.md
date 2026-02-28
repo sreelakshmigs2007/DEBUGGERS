@@ -13,8 +13,7 @@
 - Member 2: Nandana V - Ahalia school of engineering and technology
 
 ### Hosted Project Link
-[mention your project hosted link here]
-
+https://sreelakshmigs2007.github.io/DEBUGGERS/
 ### Project Description
 This is a lightweight web-based mood tracking application that allows users to log their emotions, receive supportive reflections, and track their emotional history over time. It is built using core frontend technologies and runs entirely on the client side. The platform allows users to securely log in, select their current mood, and write a short personal reflection in a private digital space. Based on the selected mood, the system generates supportive and dynamic motivational responses while storing each entry locally for future reference. A built-in history feature enables users to revisit past reflections, helping them identify emotional patterns over time.
 
